@@ -11,7 +11,7 @@ COPY docker-rootfs/sshd_config      /etc/ssh/sshd_config
 COPY docker-rootfs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker-rootfs/authorized_keys  /root/.ssh/authorized_keys
 
-RUN apt-get update && apt-get install -y language-pack-en openssh-server supervisor
+RUN apt-get update && apt-get install -y language-pack-en apt-transport-https  openssh-server supervisor
 RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/run/sshd /var/log/supervisor
 RUN rm -rf /var/lib/apt/lists/*
 RUN chmod 600 /root/.ssh && chmod 600 /root/.ssh/authorized_keys
