@@ -7,6 +7,8 @@ EXPOSE 22 8083 8084 8085
 # ----------------
 VOLUME /opt/fhem/local
 VOLUME /opt/temp
+RUN sudo echo "Europe/Berlin" > /etc/timezone
+RUN sudo dpkg-reconfigure -f noninteractive tzdata
 RUN apt-get update && apt-get install -y  apt-transport-https avrdude usbutils libauthen-sasl-perl wget
 RUN wget -qO - https://debian.fhem.de/archive.key | apt-key add -
 RUN echo "deb https://debian.fhem.de/stable ./" > /etc/apt/sources.list.d/fhem.list
