@@ -16,4 +16,4 @@ COPY docker-rootfs/docker-env.sh    /etc/profile.d/docker-env.sh
 COPY docker-rootfs/timezone /etc/timezone
 COPY docker-rootfs/fhem-main.cfg /opt/fhem/fhem-main.cfg
 RUN chown -R fhem:root /opt/fhem/local
-ENTRYPOINT cd /opt/fhem; /usr/bin/perl /opt/fhem/fhem.pl /opt/fhem/fhem-main.cfg
+ENTRYPOINT cd /opt/fhem; /usr/bin/perl /opt/fhem/fhem.pl /opt/fhem/fhem-main.cfg | /usr/bin/tee -a ./log/fhem-$(date +%Y-%m).log
