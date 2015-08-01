@@ -1,4 +1,4 @@
-FROM mazzolino/armhf-ubuntu:latest
+FROM ubuntu:latest
 MAINTAINER Marius Hein <mhein@itsocks.de>
 LABEL Description="Ubuntu FHEM container"
 EXPOSE 22 8083 8084 8085
